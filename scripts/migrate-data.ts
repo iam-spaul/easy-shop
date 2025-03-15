@@ -1,13 +1,9 @@
-import { promises as fs } from 'fs';
-import path from 'path';
-import mongoose from 'mongoose';
-import { fileURLToPath } from 'url';
+const fs = require('fs').promises;
+const path = require('path');
+const mongoose = require('mongoose');
+require('dotenv').config({ path: '.env.local' });
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/easyshop';
-
-// Get current file directory in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // Product Schema
 const productSchema = new mongoose.Schema({

@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "type": "commonjs",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -19,10 +20,12 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.5",
     "@reduxjs/toolkit": "^2.2.1",
+    "@types/fs-extra": "^11.0.4",
     "axios": "^1.6.7",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "dotenv": "^16.4.7",
     "embla-carousel-autoplay": "^8.0.0-rc23",
     "embla-carousel-react": "^8.0.0-rc23",
     "framer-motion": "^11.0.5",
@@ -42,7 +45,6 @@
     "sharp": "^0.33.2",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "ts-node": "^10.9.2",
     "zod": "^3.22.4"
   },
   "devDependencies": {
@@ -50,7 +52,7 @@
     "@babel/plugin-syntax-import-assertions": "^7.26.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/jsonwebtoken": "^9.0.5",
-    "@types/node": "^20",
+    "@types/node": "^20.17.24",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-redux": "^7.1.33",
@@ -59,6 +61,7 @@
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
   }
 }

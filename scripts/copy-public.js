@@ -1,4 +1,4 @@
-const fs = require('fs-extra')
+const fs = require('fs')
 const path = require('path')
 
 // Copy public folder to standalone/.next/static

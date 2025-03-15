@@ -14,6 +14,10 @@ const nextConfig = {
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   assetPrefix: '/',
+  webpack: (config, { isServer }) => {
+    // Add any webpack customizations here
+    return config;
+  },
 };
 
 module.exports = nextConfig;
