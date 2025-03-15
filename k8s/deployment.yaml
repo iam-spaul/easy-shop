@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-deployment
+  namespace: easyshop
+  labels:
+    app: easyshop-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: easyshop-deployment
+  template:
+    metadata:
+      labels:
+        app: easyshop-deployment
+    spec:
+      containers:
+      - name: easyshop-deployment
+        image: subhankarpaul/easyshop:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MONGODB_URI
+          valueFrom:
+            secretKeyRef:
+              name: easyshop-secrets
+              key: mongodb-uri
+        - name: NEXTAUTH_URL
+          value: "http://localhost:3000"
+        - name: NEXT_PUBLIC_API_URL
+          value: "http://localhost:3000/api"
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: easyshop-secrets
+              key: jwt-secret
+        - name: AUTH_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: easyshop-secrets
+              key: auth-secret
+        resources:
+          limits:
+            cpu: "1"
+            memory: "512Mi"
+          requests:
+            cpu: "0.5"
+            memory: "256Mi"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
