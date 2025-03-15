@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node scripts/copy-assets.js && node .next/standalone/server.js",
     "lint": "next lint",
     "migrate": "ts-node scripts/migrate-data.ts"
   },
@@ -26,6 +26,7 @@
     "embla-carousel-autoplay": "^8.0.0-rc23",
     "embla-carousel-react": "^8.0.0-rc23",
     "framer-motion": "^11.0.5",
+    "fs-extra": "^11.3.0",
     "jose": "^5.9.6",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.334.0",

@@ -1,7 +1,19 @@
 /** @type {import('next').NextConfig} */
-const config = {
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
   output: 'standalone',
-  swcMinify: true
+  experimental: {
+    outputFileTracingRoot: process.cwd(),
+  },
+  images: {
+    unoptimized: true,
+  },
+  async headers() {
+    return []
+  },
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
+  assetPrefix: '/',
 };
 
-module.exports = config;
+module.exports = nextConfig;
